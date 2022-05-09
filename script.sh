@@ -13,7 +13,7 @@ function titre {
 
 function presentation {
     titre
-    echo "$(tput setaf 3)Hello ! I am your personnal docker assistant$(tput setaf 7)"
+    echo "$(tput setaf 3)Hello ! I am your personnal docker quick commands assistant$(tput setaf 7)"
     echo ""
     echo "This is the list of all my commands, ENJOY !"
     echo "$(tput setaf 1)Just make sure you're in the right code folder$(tput setaf 7)"
@@ -29,21 +29,39 @@ function presentation {
 }
 
 function build {
-    # clear the terminal
     clear
     titre
-    echo "Building project"
-    echo ""
-    docker compose up --build
+    echo "Building project ..."
+    echo "$(tput setaf 4)"
+    docker compose up -d --build
     wait
-    echo ""
-    echo "Project Build"
-    echo ""
-    echo "Starting the project"
+    echo "$(tput setaf 7)"
+    echo "Project Build !"s
+}
+
+function stop {
+    clear
+    titre
+    echo "Stopping the project"
+    echo "$(tput setaf 4)"
+    docker kill $(docker ps -q)
+    wait
+    echo "$(tput setaf 47)"
+    echo "Project stopped properly !"
+}
+
+function start {
+    clear
+    titre
+    echo "Strating project ..."
+    echo "$(tput setaf 4)"
+    docker compose up -d
+    wait
+    echo "$(tput setaf 7)"
+    echo "Project started !"
 }
 
 function full-rebuild {
-    # clear the terminal
     clear
     titre
     echo "Are you sure to full rebuild all the project ?"
@@ -52,55 +70,83 @@ function full-rebuild {
     read -p "$(tput setaf 4)yes/no : $(tput setaf 7)" confirmation
 
     if [[ $confirmation == "yes" ]]; then
-        clear
         echo ""
         echo "Stop docker and removing the containers ..."
-        echo ""
+        echo "$(tput setaf 4)"
         docker compose down
         wait
-        echo ""
+        echo "$(tput setaf 7)"
         echo "Finished, rebuilding the project..."
-        echo ""
-        docker compose up --build
+        echo "$(tput setaf 4)"
+        docker compose up -d --build
         wait
-        echo ""
-        echo "Project Build"
-        echo ""
-        echo "Starting the project"
+        echo "$(tput setaf 7)"
+        echo "Project full rebuilded !"
     else
         clear
     fi
 }
 
+function reload {
+    clear
+    titre
+    echo "Stopping the project"
+    echo "$(tput setaf 4)"
+    docker kill $(docker ps -q)
+    wait
+    echo "$(tput setaf 47)"
+    echo "Project stopped properly !"
+    echo ""
+    echo "Strating project ..."
+    echo "$(tput setaf 4)"
+    docker compose up -d
+    wait
+    echo "$(tput setaf 7)"
+    echo "Project reloaded !"
+}
+
+function rebuild {
+    clear
+    titre
+    echo "Stopping the project"
+    echo "$(tput setaf 4)"
+    docker kill $(docker ps -q)
+    wait
+    echo "$(tput setaf 47)"
+    echo "Project stopped properly !"
+    echo ""
+    echo "Strating project ..."
+    echo "$(tput setaf 4)"
+    docker compose up -d --build
+    wait
+    echo "$(tput setaf 7)"
+    echo "Project rebuilded !"
+}
+
 # switch for commands
 if [[ $1 == "help" ]]; then
-    # clear the terminal
     clear
     presentation
 elif [[ $1 == "build" ]]; then
-    # clear the terminal
     clear
     build
 elif [[ $1 == "start" ]]; then
-    # clear the terminal
     clear
-    echo "start"
+    start
 elif [[ $1 == "stop" ]]; then
-    # clear the terminal
     clear
     stop
 elif [[ $1 == "reload" ]]; then
-    # clear the terminal
     clear
-    echo "reload"
+    reload
 elif [[ $1 == "rebuild" ]]; then
-    # clear the terminal
     clear
-    echo "rebuild"
+    rebuild
 elif [[ $1 == "full-rebuild" ]]; then
-    # clear the terminal
     clear
     full-rebuild
 else
+    clear
+    titre
     echo "oops... error... type 'help' to see the available commands"
 fi
