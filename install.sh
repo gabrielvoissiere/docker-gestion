@@ -1,3 +1,5 @@
+#!/bin/bash
+clear
 echo "$(tput setaf 2)  _____    ____    _____    ______   _        _        _____    _____ "
 echo "$(tput setaf 2) / ____|  / __ \  |  __ \  |  ____| | |      | |      |_   _|  / ____|"
 echo "$(tput setaf 2)| |      | |  | | | |__) | | |__    | |      | |        | |   | (___  "
@@ -7,17 +9,45 @@ echo "$(tput setaf 2) \_____|  \____/  |_|  \_\ |______| |______| |______| |____
 echo ""
 echo "----------------------------------------------------------------------$(tput setaf 7)"
 echo ""
-echo "installing dockis on your computer (mac only) ..."
-echo ""
 
-# move dockis to /usr/local/bin
-mv dockis /usr/local/bin
+function macOs {
+    echo ""
+    echo "installing dockis on your computer (mac only) ..."
 
-# do to /usr/local/bin/
-cd /usr/local/bin
+    echo ""
 
-# make dockis executable
-chmod +x dockis
+    # create hidden dockis folder
+    mkdir /Users/"$USER"/.dockis
+    mkdir /Users/"$USER"/.dockis/dockis
 
-echo ""
-echo "dockis installed successfully"
+    # copy dockis and dockis-upgrade in hidden dockis folder
+    cp dockis /Users/"$USER"/.dockis/dockis
+    cp dockis-upgrade /Users/"$USER"/.dockis
+
+    # copy dockis and dockis-upgrade in /usr/local/bin/
+    cp dockis /usr/local/bin
+    cp dockis-upgrade /usr/local/bin
+
+    # make dockis executable
+    cd /usr/local/bin/
+    chmod +x dockis
+    chmod +x dockis-upgrade
+
+    echo ""
+    echo "dockis installed successfully ! You may delete this folder"
+    echo ""
+    echo "Type 'dockis help' to see the list of commands"
+}
+
+read -p "Choose your OS (1 - Linux, 2 - MacOS, 3 - Windows) : " os
+
+if [ $os = 1 ]; then
+    echo "Linux is not supported yet, but you can add it yourself."
+elif [ $os = 2 ]; then
+    macOs
+elif [ $os = 3 ]; then
+    echo "Windows is not supported yet, but you can add it yourself."
+else
+    echo "You choose wrong"
+    exit
+fi
