@@ -8,7 +8,7 @@ function titre {
     echo "$(tput setaf 2) \_____|  \____/  |_|  \_\ |______| |______| |______| |_____| |_____/ "
     echo ""
     echo "----------------------------------------------------------------------$(tput setaf 7)"
-    echo "version 1.0 by Gabriel Voissiere"
+    echo "$(tput setaf 2)version 1.0$(tput setaf 7)"
 }
 
 function presentation {
