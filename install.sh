@@ -17,12 +17,12 @@ function macOs {
     echo ""
 
     # create hidden dockis folder
-    mkdir /Users/"$USER"/.dockis
-    mkdir /Users/"$USER"/.dockis/dockis
+    mkdir /Users/"$1"/.dockis
+    mkdir /Users/"$1"/.dockis/dockis
 
     # copy dockis and dockis-upgrade in hidden dockis folder
-    cp dockis /Users/"$USER"/.dockis/dockis
-    cp dockis-upgrade /Users/"$USER"/.dockis
+    cp dockis /Users/"$1"/.dockis/dockis
+    cp dockis-upgrade /Users/"$1"/.dockis
 
     # copy dockis and dockis-upgrade in /usr/local/bin/
     cp dockis /usr/local/bin
@@ -34,7 +34,7 @@ function macOs {
     chmod +x dockis-upgrade
 
     echo ""
-    echo "dockis installed successfully ! You may delete this folder"
+    echo "dockis installed successfully ! You may now delete this folder"
     echo ""
     echo "Type 'dockis help' to see the list of commands"
 }
