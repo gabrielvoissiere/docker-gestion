@@ -13,7 +13,7 @@ echo ""
 echo "$(tput setaf 6)upgrading dockis ...$(tput setaf 7)"
 echo ""
 
-cd /Users/"$USER"/.dockis
+cd /Users/"$1"/.dockis
 rm -rf dockis
 git clone https://github.com/gabrielvoissiere/dockis.git
 cd dockis
