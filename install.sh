@@ -34,6 +34,10 @@ function macOs {
     chmod +x dockis-upgrade
 
     echo ""
+    echo "upgrading dockis..."
+    dockis-upgradewait
+    echo "dockis successfully upgraded !"
+    echo ""
     echo "dockis installed successfully ! You may now delete this folder"
     echo ""
     echo "Type 'dockis help' to see the list of commands"
