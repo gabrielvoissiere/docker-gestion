@@ -32,6 +32,7 @@ function macOs {
     cd /usr/local/bin/
     chmod +x dockis
     chmod +x dockis-upgrade
+    wait
 
     echo ""
     echo "upgrading dockis..."
