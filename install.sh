@@ -35,7 +35,8 @@ function macOs {
 
     echo ""
     echo "upgrading dockis..."
-    dockis-upgradewait
+    dockis-upgrade
+    wait
     echo "dockis successfully upgraded !"
     echo ""
     echo "dockis installed successfully ! You may now delete this folder"
