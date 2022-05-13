@@ -44,7 +44,7 @@ function stop {
     titre
     echo "Stopping the project"
     echo "$(tput setaf 4)"
-    docker kill $(docker ps -q)
+    docker kill "$(docker ps -q)"
     wait
     echo "$(tput setaf 47)"
     echo "Project stopped properly !"
