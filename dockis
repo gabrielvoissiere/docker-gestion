@@ -11,6 +11,11 @@ function titre {
     echo "$(tput setaf 2)version 1.0$(tput setaf 7)"
 }
 
+function srp {
+    titre
+    echo 'you just got rick rolled'
+}
+
 function presentation {
     titre
     echo "$(tput setaf 3)Hello ! I am your personnal docker quick commands assistant$(tput setaf 7)"
@@ -145,6 +150,9 @@ elif [[ $1 == "rebuild" ]]; then
 elif [[ $1 == "full-rebuild" ]]; then
     clear
     full-rebuild
+elif [[ $1 == "srp" ]]; then
+    clear
+    srp
 else
     clear
     titre
