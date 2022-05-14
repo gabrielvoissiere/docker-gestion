@@ -10,8 +10,10 @@ echo ""
 echo "----------------------------------------------------------------------$(tput setaf 7)"
 echo ""
 
+# get user argument
 User=$1
 
+# install on MacOs
 function macOs {
     echo ""
     echo "installing dockis on your computer (mac only) ..."
@@ -46,6 +48,7 @@ function macOs {
     echo "Type 'dockis help' to see the list of commands"
 }
 
+# install on Linux
 function linux {
     echo ""
     echo "installing dockis on your computer (linux only) ..."
