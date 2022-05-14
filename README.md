@@ -5,8 +5,7 @@ Meet Dockis ! Your personal Docker assistant for quick command and more !
 
 
 ## Installation
-#### For MacOS with terminal
-Installation :
+#### For Linux and  MacOS with terminal
 
 ```bash
 cd /Users/$USER/Documents
