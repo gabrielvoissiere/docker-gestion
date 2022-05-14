@@ -1,0 +1,46 @@
+#!/bin/bash
+clear
+echo "$(tput setaf 2) _____     ____     _____   _  __  _____    _____ "
+echo "$(tput setaf 2)|  __ \   / __ \   / ____| | |/ / |_   _|  / ____|"
+echo "$(tput setaf 2)| |  | | | |  | | | |      | ' /    | |   | (___  "
+echo "$(tput setaf 2)| |  | | | |  | | | |      |  <     | |    \___ \ "
+echo "$(tput setaf 2)| |__| | | |__| | | |____  | . \   _| |_   ____) |"
+echo "$(tput setaf 2)|_____/   \____/   \_____| |_|\_\ |_____| |_____/ "
+echo ""
+echo "-------------------------------------------------$(tput setaf 7)"
+echo "$(tput setaf 2)version 1.0$(tput setaf 7)"
+
+# get user argument
+User=$1
+# install on Linux
+function linux {
+    echo ""
+    echo "uninstalling dockis from your computer (linux only) ..."
+    sleep 2
+
+    echo ""
+
+    echo "delete hidden dockis folder ..."
+    sleep 2
+    rm -rf /home/"$User"/.dockis
+
+    echo "delete dockis and dockis-upgrade from /usr/local/bin/ ..."
+    sleep 2
+    rm dockis /usr/local/bin
+    rm dockis-upgrade /usr/local/bin
+
+    echo ""
+    echo "dockis uninstalled successfully !"
+    echo ""
+    echo "Good bye ! see you soon ^^"
+    cd /usr/local/bin
+    rm dockis-uninstall /usr/local/bin
+}
+
+read -p "Are you sure to want to delete dockis from your computer ? (yes/no) : " sure
+
+if [ $sure = "yes" ]; then
+    linux
+else
+    exit
+fi
