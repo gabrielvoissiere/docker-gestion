@@ -1,0 +1,25 @@
+#!/bin/bash
+clear
+echo "$(tput setaf 2)  _____    ____    _____    ______   _        _        _____    _____ "
+echo "$(tput setaf 2) / ____|  / __ \  |  __ \  |  ____| | |      | |      |_   _|  / ____|"
+echo "$(tput setaf 2)| |      | |  | | | |__) | | |__    | |      | |        | |   | (___  "
+echo "$(tput setaf 2)| |      | |  | | |  _  /  |  __|   | |      | |        | |    \___ \ "
+echo "$(tput setaf 2)| |____  | |__| | | | \ \  | |____  | |____  | |____   _| |_   ____) |"
+echo "$(tput setaf 2) \_____|  \____/  |_|  \_\ |______| |______| |______| |_____| |_____/ "
+echo ""
+echo "----------------------------------------------------------------------$(tput setaf 7)"
+echo "$(tput setaf 2)version 1.0$(tput setaf 7)"
+echo ""
+echo "$(tput setaf 6)upgrading dockis ...$(tput setaf 7)"
+echo ""
+
+User=$1
+
+cd /home/"$User"/.dockis
+rm -rf dockis
+git clone https://github.com/gabrielvoissiere/dockis.git
+cd dockis
+cp dockis /usr/local/bin
+
+echo ""
+echo "$(tput setaf 2)dockis upgraded successfully !"

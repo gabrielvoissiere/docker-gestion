@@ -10,6 +10,8 @@ echo ""
 echo "----------------------------------------------------------------------$(tput setaf 7)"
 echo ""
 
+User=$1
+
 function macOs {
     echo ""
     echo "installing dockis on your computer (mac only) ..."
@@ -17,12 +19,50 @@ function macOs {
     echo ""
 
     # create hidden dockis folder
-    mkdir /Users/"$1"/.dockis
-    mkdir /Users/"$1"/.dockis/dockis
+    mkdir /Users/"$User"/.dockis
+    mkdir /Users/"$User"/.dockis/dockis
 
     # copy dockis and dockis-upgrade in hidden dockis folder
-    cp dockis /Users/"$1"/.dockis/dockis
-    cp dockis-upgrade /Users/"$1"/.dockis
+    cp dockis /Users/"$User"/.dockis/dockis
+    cp dockis-upgrade-macos /Users/"$User"/.dockis
+
+    # rename in dockis-upgrade
+    cd /Users/"$User"/.dockis
+    mv dockis-upgrade-macos dockis-upgrade
+
+    # copy dockis and dockis-upgrade in /usr/local/bin/
+    cp dockis /usr/local/bin
+    cp dockis-upgrade-macos /usr/local/bin
+
+    # make dockis executable
+    cd /usr/local/bin/
+    mv dockis-upgrade-macos dockis-upgrade
+    chmod +x dockis
+    chmod +x dockis-upgrade
+
+    echo ""
+    echo "dockis installed successfully ! You may now delete this folder"
+    echo ""
+    echo "Type 'dockis help' to see the list of commands"
+}
+
+function linux {
+    echo ""
+    echo "installing dockis on your computer (linux only) ..."
+
+    echo ""
+
+    # create hidden dockis folder
+    mkdir /home/"$User"/.dockis
+    mkdir /home/"$User"/.dockis/dockis
+
+    # copy dockis and dockis-upgrade in hidden dockis folder
+    cp dockis /home/"$User"/.dockis/dockis
+    cp dockis-upgrade-linux /home/"$User"/.dockis
+
+    # rename in dockis-upgrade
+    cd /home/"$User"/.dockis
+    mv dockis-upgrade-linux dockis-upgrade
 
     # copy dockis and dockis-upgrade in /usr/local/bin/
     cp dockis /usr/local/bin
@@ -30,15 +70,10 @@ function macOs {
 
     # make dockis executable
     cd /usr/local/bin/
+    mv dockis-upgrade-linux dockis-upgrade
     chmod +x dockis
     chmod +x dockis-upgrade
-    wait
 
-    echo ""
-    echo "upgrading dockis..."
-    dockis-upgrade
-    wait
-    echo "dockis successfully upgraded !"
     echo ""
     echo "dockis installed successfully ! You may now delete this folder"
     echo ""
@@ -48,7 +83,7 @@ function macOs {
 read -p "Choose your OS (1 - Linux, 2 - MacOS, 3 - Windows) : " os
 
 if [ $os = 1 ]; then
-    echo "Linux is not supported yet, but you can add it yourself."
+    linux
 elif [ $os = 2 ]; then
     macOs
 elif [ $os = 3 ]; then
