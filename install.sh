@@ -87,8 +87,8 @@ if [ $os = 1 ]; then
 elif [ $os = 2 ]; then
     macOs
 elif [ $os = 3 ]; then
-    echo "Windows is not supported yet, but you can add it yourself."
+    echo "You can see the readme to know how to install it on Windows."
 else
-    echo "You choose wrong"
+    echo "Wrong os !"
     exit
 fi
