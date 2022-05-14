@@ -1,7 +1,7 @@
 
 # Dockis
 
-Meet Dockis ! Your personal Docker assistant for quick command and more !
+Meet Dockis ! Your personal Docker assistant for quick command and more ! for the moment he is on his first step , but he go grow up with your idea and support ! News commands, news interfaces, news possibilities
 
 
 ## Installation
