@@ -12,6 +12,13 @@ echo "$(tput setaf 2)version 1.0$(tput setaf 7)"
 
 # get user argument
 User=$1
+Path=$(pwd)
+
+function delete_installation_folder {
+    echo ""
+    echo "$(tput setaf 2)Installation folder successfully deleted !"
+    rm -rf $Path
+}
 
 # install on MacOs
 function macOs {
@@ -49,12 +56,24 @@ function macOs {
     chmod +x dockis-upgrade
 
     echo ""
+    echo "$(tput setaf 6)upgrading dockis ...$(tput setaf 7)"
+    dockis-upgrade $User
+
+    echo ""
     echo "$(tput setaf 2)dockis installed successfully ! You may now delete this folder"
     echo ""
     echo "$(tput setaf 6)Type 'sudo dockis-upgrade \$USER' to be sure you are on the latest version of Dockis"
     echo ""
     echo "T$(tput setaf 7)ype 'dockis help' to see the list of commands"
     echo ""
+
+    read -p "$(tput setaf 1)Do you want to delete installation fodler now ? (yes/no) : $(tput setaf 7)" delete
+
+    if [ $delete = "yes" ]; then
+        delete_installation_folder
+    else
+        exit
+    fi
 }
 
 # install on Linux
@@ -96,12 +115,24 @@ function linux {
     chmod +x dockis-uninstall
 
     echo ""
+    echo "$(tput setaf 6)upgrading dockis ...$(tput setaf 7)"
+    dockis-upgrade $User
+
+    echo ""
     echo "$(tput setaf 2)dockis installed successfully ! You may now delete this folder"
     echo ""
     echo "$(tput setaf 6)Type 'sudo dockis-upgrade \$USER' to be sure you are on the latest version of Dockis"
     echo ""
     echo "$(tput setaf 7)Type 'dockis help' to see the list of commands"
     echo ""
+
+    read -p "$(tput setaf 1)Do you want to delete installation fodler now ? (yes/no) : $(tput setaf 7)" delete
+
+    if [ $delete = "yes" ]; then
+        delete_installation_folder
+    else
+        exit
+    fi
 }
 
 read -p "Choose your OS (1 - Linux, 2 - MacOS, 3 - Windows) : " os
