@@ -15,7 +15,7 @@ User=$1
 # install on Linux
 function linux {
     echo ""
-    echo "uninstalling dockis from your computer (linux only) ..."
+    echo "$(tput setaf 3)uninstalling dockis from your computer (linux only) ..."
     sleep 2
 
     echo ""
@@ -31,14 +31,14 @@ function linux {
     rm dockis-upgrade 
 
     echo ""
-    echo "dockis uninstalled successfully !"
+    echo "$(tput setaf 2)dockis uninstalled successfully !"
     echo ""
-    echo "Good bye ! see you soon ^^"
+    echo "$(tput setaf 7)Good bye ! see you soon ^^"
     sleep 2
     rm dockis-uninstall
 }
 
-read -p "Are you sure to want to delete dockis from your computer ? (yes/no) : " sure
+read -p "$(tput setaf 1)Are you sure to want to delete dockis from your computer ? (yes/no) : " sure
 
 if [ $sure = "yes" ]; then
     linux

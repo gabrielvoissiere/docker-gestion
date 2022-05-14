@@ -16,7 +16,7 @@ User=$1
 # install on MacOs
 function macOs {
     echo ""
-    echo "installing Dockis on your computer (mac only) ..."
+    echo "$(tput setaf 3)installing Dockis on your computer (mac only) ..."
     sleep 2
 
     echo ""
@@ -49,15 +49,18 @@ function macOs {
     chmod +x dockis-upgrade
 
     echo ""
-    echo "dockis installed successfully ! You may now delete this folder"
+    echo "$(tput setaf 2)dockis installed successfully ! You may now delete this folder"
     echo ""
-    echo "Type 'dockis help' to see the list of commands"
+    echo "$(tput setaf 6)Type 'sudo dockis-upgrade \$USER' to be sure you are on the latest version of Dockis"
+    echo ""
+    echo "T$(tput setaf 7)ype 'dockis help' to see the list of commands"
+    echo ""
 }
 
 # install on Linux
 function linux {
     echo ""
-    echo "installing dockis on your computer (linux only) ..."
+    echo "$(tput setaf 3)installing dockis on your computer (linux only) ..."
     sleep 2
 
     echo ""
@@ -93,11 +96,12 @@ function linux {
     chmod +x dockis-uninstall
 
     echo ""
-    echo "dockis installed successfully ! You may now delete this folder"
+    echo "$(tput setaf 2)dockis installed successfully ! You may now delete this folder"
     echo ""
-    echo "Type 'sudo dockis-upgrade \$USER' to be sure you are on the latest version of Dockis"
+    echo "$(tput setaf 6)Type 'sudo dockis-upgrade \$USER' to be sure you are on the latest version of Dockis"
     echo ""
-    echo "Type 'dockis help' to see the list of commands"
+    echo "$(tput setaf 7)Type 'dockis help' to see the list of commands"
+    echo ""
 }
 
 read -p "Choose your OS (1 - Linux, 2 - MacOS, 3 - Windows) : " os
