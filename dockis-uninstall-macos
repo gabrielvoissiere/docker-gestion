@@ -15,14 +15,14 @@ User=$1
 # install on Linux
 function linux {
     echo ""
-    echo "$(tput setaf 3)uninstalling dockis from your computer (Linux only) ..."
+    echo "$(tput setaf 3)uninstalling dockis from your computer (MacOs only) ..."
     sleep 2
 
     echo ""
 
     echo "delete hidden dockis folder ..."
     sleep 2
-    rm -rf /home/"$User"/.dockis
+    rm -rf /Users/"$User"/.dockis
 
     echo "delete dockis and dockis-upgrade from /usr/local/bin/ ..."
     sleep 2

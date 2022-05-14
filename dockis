@@ -7,7 +7,7 @@ function titre {
     echo "$(tput setaf 2)| |__| | | |__| | | |____  | . \   _| |_   ____) |"
     echo "$(tput setaf 2)|_____/   \____/   \_____| |_|\_\ |_____| |_____/ "
     echo ""
-    echo "-------------------------------------------------$(tput setaf 7)"
+    echo "--------------------------------------------------$(tput setaf 7)"
     echo "$(tput setaf 2)version 1.0$(tput setaf 7)"
 }
 

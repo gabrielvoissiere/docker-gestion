@@ -7,8 +7,9 @@ echo "$(tput setaf 2)| |  | | | |  | | | |      |  <     | |    \___ \ "
 echo "$(tput setaf 2)| |__| | | |__| | | |____  | . \   _| |_   ____) |"
 echo "$(tput setaf 2)|_____/   \____/   \_____| |_|\_\ |_____| |_____/ "
 echo ""
-echo "-------------------------------------------------$(tput setaf 7)"
+echo "--------------------------------------------------$(tput setaf 7)"
 echo "$(tput setaf 2)version 1.0$(tput setaf 7)"
+echo ""
 
 # get user argument
 User=$1
@@ -42,6 +43,7 @@ function macOs {
     sleep 2
     cp dockis /usr/local/bin
     cp dockis-upgrade-macos /usr/local/bin
+    cp dockis-uninstall-macos /usr/local/bin
 
     echo "rename dockis-upgrade"
     sleep 2
@@ -52,12 +54,18 @@ function macOs {
     sleep 2
     cd /usr/local/bin/
     mv dockis-upgrade-macos dockis-upgrade
+    mv dockis-uninstall-linux dockis-uninstall
     chmod +x dockis
     chmod +x dockis-upgrade
 
     echo ""
     echo "$(tput setaf 6)upgrading dockis ...$(tput setaf 7)"
-    dockis-upgrade $User
+    sleep 2
+    cd /Users/"$1"/.dockis
+    rm -rf dockis
+    git clone https://github.com/gabrielvoissiere/dockis.git
+    cd dockis
+    cp dockis /usr/local/bin
 
     echo ""
     echo "$(tput setaf 2)dockis installed successfully ! You may now delete this folder"
@@ -84,7 +92,7 @@ function linux {
 
     echo ""
 
-    echo "create hidden dockis folder ..."
+    echo "$(tput setaf 6)create hidden dockis folder ..."
     sleep 2
     mkdir /home/"$User"/.dockis
     mkdir /home/"$User"/.dockis/dockis
@@ -115,13 +123,17 @@ function linux {
     chmod +x dockis-uninstall
 
     echo ""
-    echo "$(tput setaf 6)upgrading dockis ...$(tput setaf 7)"
-    dockis-upgrade $User
+    echo "$(tput setaf 3)upgrading dockis ...$(tput setaf 6)"
+    echo ""
+    sleep 2
+    cd /home/"$User"/.dockis
+    rm -rf dockis
+    git clone https://github.com/gabrielvoissiere/dockis.git
+    cd dockis
+    cp dockis /usr/local/bin
 
     echo ""
-    echo "$(tput setaf 2)dockis installed successfully ! You may now delete this folder"
-    echo ""
-    echo "$(tput setaf 6)Type 'sudo dockis-upgrade \$USER' to be sure you are on the latest version of Dockis"
+    echo "$(tput setaf 2)dockis installed and upgraded successfully !"
     echo ""
     echo "$(tput setaf 7)Type 'dockis help' to see the list of commands"
     echo ""
