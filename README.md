@@ -36,7 +36,7 @@ sudo dockis-upgrade $USER
     
 ## Screenshots
 
-![App Screenshot](https://github.com/gabrielvoissiere/image/blob/main/Capture%20d%E2%80%99e%CC%81cran%202022-05-10%20a%CC%80%2016.23.52.png?raw=true)
+![App Screenshot](https://github.com/gabrielvoissiere/image/blob/main/dockis_illustration.png?raw=true)
 
 
 ## Support
