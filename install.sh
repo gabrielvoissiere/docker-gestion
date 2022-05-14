@@ -1,14 +1,14 @@
 #!/bin/bash
 clear
-echo "$(tput setaf 2)  _____    ____    _____    ______   _        _        _____    _____ "
-echo "$(tput setaf 2) / ____|  / __ \  |  __ \  |  ____| | |      | |      |_   _|  / ____|"
-echo "$(tput setaf 2)| |      | |  | | | |__) | | |__    | |      | |        | |   | (___  "
-echo "$(tput setaf 2)| |      | |  | | |  _  /  |  __|   | |      | |        | |    \___ \ "
-echo "$(tput setaf 2)| |____  | |__| | | | \ \  | |____  | |____  | |____   _| |_   ____) |"
-echo "$(tput setaf 2) \_____|  \____/  |_|  \_\ |______| |______| |______| |_____| |_____/ "
+echo "$(tput setaf 2) _____     ____     _____   _  __  _____    _____ "
+echo "$(tput setaf 2)|  __ \   / __ \   / ____| | |/ / |_   _|  / ____|"
+echo "$(tput setaf 2)| |  | | | |  | | | |      | ' /    | |   | (___  "
+echo "$(tput setaf 2)| |  | | | |  | | | |      |  <     | |    \___ \ "
+echo "$(tput setaf 2)| |__| | | |__| | | |____  | . \   _| |_   ____) |"
+echo "$(tput setaf 2)|_____/   \____/   \_____| |_|\_\ |_____| |_____/ "
 echo ""
-echo "----------------------------------------------------------------------$(tput setaf 7)"
-echo ""
+echo "-------------------------------------------------$(tput setaf 7)"
+echo "$(tput setaf 2)version 1.0$(tput setaf 7)"
 
 # get user argument
 User=$1
@@ -16,7 +16,7 @@ User=$1
 # install on MacOs
 function macOs {
     echo ""
-    echo "installing dockis on your computer (mac only) ..."
+    echo "installing Dockis on your computer (mac only) ..."
 
     echo ""
 
@@ -52,33 +52,44 @@ function macOs {
 function linux {
     echo ""
     echo "installing dockis on your computer (linux only) ..."
+    sleep 2
 
     echo ""
 
-    # create hidden dockis folder
+    echo "create hidden dockis folder ..."
+    sleep 2
     mkdir /home/"$User"/.dockis
     mkdir /home/"$User"/.dockis/dockis
 
-    # copy dockis and dockis-upgrade in hidden dockis folder
+    echo "copy dockis and dockis-upgrade in hidden dockis folder ..."
+    sleep 2
     cp dockis /home/"$User"/.dockis/dockis
     cp dockis-upgrade-linux /home/"$User"/.dockis
 
-    # rename in dockis-upgrade
+    echo "copy dockis and dockis-upgrade in /usr/local/bin/ ..."
+    sleep 2
+    cp dockis /usr/local/bin
+    cp dockis-upgrade-linux /usr/local/bin
+    cp dockis-uninstall-linux /usr/local/bin
+
+    echo "rename dockis-upgrade ..."
+    sleep 2
     cd /home/"$User"/.dockis
     mv dockis-upgrade-linux dockis-upgrade
 
-    # copy dockis and dockis-upgrade in /usr/local/bin/
-    cp dockis /usr/local/bin
-    cp dockis-upgrade /usr/local/bin
-
-    # make dockis executable
+    echo "make dockis executable ..."
+    sleep 2
     cd /usr/local/bin/
     mv dockis-upgrade-linux dockis-upgrade
+    mv dockis-uninstall-linux dockis-uninstall
     chmod +x dockis
     chmod +x dockis-upgrade
+    chmod +x dockis-uninstall
 
     echo ""
     echo "dockis installed successfully ! You may now delete this folder"
+    echo ""
+    echo "Type 'sudo dockis-upgrade \$USER' to be sure you are on the latest version of Dockis"
     echo ""
     echo "Type 'dockis help' to see the list of commands"
 }
