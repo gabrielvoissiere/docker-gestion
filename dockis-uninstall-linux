@@ -26,14 +26,15 @@ function linux {
 
     echo "delete dockis and dockis-upgrade from /usr/local/bin/ ..."
     sleep 2
-    rm dockis /usr/local/bin
-    rm dockis-upgrade /usr/local/bin
+    cd /usr/local/bin/
+    rm dockis 
+    rm dockis-upgrade 
 
     echo ""
     echo "dockis uninstalled successfully !"
     echo ""
     echo "Good bye ! see you soon ^^"
-    cd /usr/local/bin
+    sleep 2
     rm dockis-uninstall /usr/local/bin
 }
 

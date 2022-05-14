@@ -17,26 +17,32 @@ User=$1
 function macOs {
     echo ""
     echo "installing Dockis on your computer (mac only) ..."
+    sleep 2
 
     echo ""
 
-    # create hidden dockis folder
+    echo "create hidden dockis folder"
+    sleep 2
     mkdir /Users/"$User"/.dockis
     mkdir /Users/"$User"/.dockis/dockis
 
-    # copy dockis and dockis-upgrade in hidden dockis folder
+    echo "copy dockis and dockis-upgrade in hidden dockis folder"
+    sleep 2
     cp dockis /Users/"$User"/.dockis/dockis
     cp dockis-upgrade-macos /Users/"$User"/.dockis
 
-    # rename in dockis-upgrade
-    cd /Users/"$User"/.dockis
-    mv dockis-upgrade-macos dockis-upgrade
-
-    # copy dockis and dockis-upgrade in /usr/local/bin/
+    echo "copy dockis and dockis-upgrade in /usr/local/bin/"
+    sleep 2
     cp dockis /usr/local/bin
     cp dockis-upgrade-macos /usr/local/bin
 
-    # make dockis executable
+    echo "rename dockis-upgrade"
+    sleep 2
+    cd /Users/"$User"/.dockis
+    mv dockis-upgrade-macos dockis-upgrade
+
+    echo "make dockis executable"
+    sleep 2
     cd /usr/local/bin/
     mv dockis-upgrade-macos dockis-upgrade
     chmod +x dockis
