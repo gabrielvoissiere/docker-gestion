@@ -37,7 +37,6 @@ function macOs {
     echo "copy dockis and dockis-upgrade in hidden dockis folder"
     sleep 2
     cp dockis /Users/"$User"/.dockis/dockis
-    cp dockis-upgrade-macos /Users/"$User"/.dockis
 
     echo "copy dockis and dockis-upgrade in /usr/local/bin/"
     sleep 2
@@ -57,11 +56,12 @@ function macOs {
     mv dockis-uninstall-macos dockis-uninstall
     chmod +x dockis
     chmod +x dockis-upgrade
+    chmod +x dockis-uninstall
 
     echo ""
     echo "$(tput setaf 6)upgrading dockis ...$(tput setaf 7)"
     sleep 2
-    cd /Users/"$1"/.dockis
+    cd /Users/"$User"/.dockis
     rm -rf dockis
     git clone https://github.com/gabrielvoissiere/dockis.git
     cd dockis
@@ -100,7 +100,6 @@ function linux {
     echo "copy dockis and dockis-upgrade in hidden dockis folder ..."
     sleep 2
     cp dockis /home/"$User"/.dockis/dockis
-    cp dockis-upgrade-linux /home/"$User"/.dockis
 
     echo "copy dockis and dockis-upgrade in /usr/local/bin/ ..."
     sleep 2
