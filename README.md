@@ -19,6 +19,8 @@ MacOs & Linux
 ```bash
 git clone https://github.com/gabrielvoissiere/docker-gestion.git
 
+cd docker-gestion
+
 chmod +x install.sh
 
 sudo ./install $USER
