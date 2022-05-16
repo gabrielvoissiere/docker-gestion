@@ -23,7 +23,7 @@ cd docker-gestion
 
 chmod +x install.sh
 
-sudo ./install $USER
+sudo ./install.sh $USER
 ```
 Windows
 ```console
