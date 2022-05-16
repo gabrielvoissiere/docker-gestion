@@ -54,7 +54,7 @@ function macOs {
     sleep 2
     cd /usr/local/bin/
     mv dockis-upgrade-macos dockis-upgrade
-    mv dockis-uninstall-linux dockis-uninstall
+    mv dockis-uninstall-macos dockis-uninstall
     chmod +x dockis
     chmod +x dockis-upgrade
 
