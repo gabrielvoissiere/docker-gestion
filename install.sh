@@ -44,11 +44,6 @@ function macOs {
     cp dockis-upgrade-macos /usr/local/bin
     cp dockis-uninstall-macos /usr/local/bin
 
-    echo "rename dockis-upgrade"
-    sleep 2
-    cd /Users/"$User"/.dockis
-    mv dockis-upgrade-macos dockis-upgrade
-
     echo "make dockis executable"
     sleep 2
     cd /usr/local/bin/
@@ -106,11 +101,6 @@ function linux {
     cp dockis /usr/local/bin
     cp dockis-upgrade-linux /usr/local/bin
     cp dockis-uninstall-linux /usr/local/bin
-
-    echo "rename dockis-upgrade ..."
-    sleep 2
-    cd /home/"$User"/.dockis
-    mv dockis-upgrade-linux dockis-upgrade
 
     echo "make dockis executable ..."
     sleep 2
